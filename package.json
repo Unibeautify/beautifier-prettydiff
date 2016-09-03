@@ -1,0 +1,30 @@
+{
+  "name": "beautifier-prettydiff",
+  "version": "0.1.0",
+  "description": "Pretty Diff beautifier for Unibeautify",
+  "main": "src/index.js",
+  "dependencies": {
+    "unibeautify-beautifier": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unibeautify/beautifier-prettydiff.git"
+  },
+  "keywords": [
+    "pretty",
+    "diff",
+    "unibeautify",
+    "beautify",
+    "beautifier"
+  ],
+  "author": "Glavin Wiechert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Unibeautify/beautifier-prettydiff/issues"
+  },
+  "homepage": "https://github.com/Unibeautify/beautifier-prettydiff#readme"
+}
