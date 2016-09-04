@@ -8,7 +8,7 @@ const Beautifier = {
   options: {
     _: {
       inchar: [
-        "indent_with_tabs", "indent_char", function(indent_with_tabs, indent_char) {
+        ["indent_with_tabs", "indent_char"], function({indent_with_tabs, indent_char}) {
           if (indent_with_tabs === true) {
             return "\t";
           } else {
@@ -17,7 +17,7 @@ const Beautifier = {
         }
       ],
       insize: [
-        "indent_with_tabs", "indent_size", function(indent_with_tabs, indent_size) {
+        ["indent_with_tabs", "indent_size"], function({indent_with_tabs, indent_size}) {
           if (indent_with_tabs === true) {
             return 1;
           } else {
@@ -29,7 +29,7 @@ const Beautifier = {
         return objsort || false;
       },
       preserve: [
-        'preserve_newlines', function(preserve_newlines) {
+        ['preserve_newlines'], function({preserve_newlines}) {
           if (preserve_newlines === true) {
             return "all";
           } else {
@@ -39,7 +39,7 @@ const Beautifier = {
       ],
       cssinsertlines: "newline_between_rules",
       comments: [
-        "indent_comments", function(indent_comments) {
+        ["indent_comments"], function({indent_comments}) {
           if (indent_comments === false) {
             return "noindent";
           } else {
@@ -50,7 +50,7 @@ const Beautifier = {
       force: "force_indentation",
       quoteConvert: "convert_quotes",
       vertical: [
-        'align_assignments', function(align_assignments) {
+        ['align_assignments'], function({align_assignments}) {
           if (align_assignments === true) {
             return "all";
           } else {
@@ -63,7 +63,7 @@ const Beautifier = {
       noleadzero: "no_lead_zero",
       endcomma: "end_with_comma",
       methodchain: [
-        'break_chained_methods', function(break_chained_methods) {
+        ['break_chained_methods'], function({break_chained_methods}) {
           if (break_chained_methods === true) {
             return false;
           } else {

@@ -30,8 +30,8 @@ test("should successfully beautify JavaScript text", (t) => {
     languageName: "JavaScript",
     options: {
       "JavaScript": {
-        "inchar": " ",
-        "insize": 2,
+        "indent_char": " ",
+        "indent_size": 2,
       }
     },
     text,
