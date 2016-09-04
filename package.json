@@ -1,6 +1,6 @@
 {
   "name": "beautifier-prettydiff",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pretty Diff beautifier for Unibeautify",
   "main": "src/index.js",
   "dependencies": {
