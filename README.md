@@ -1,5 +1,7 @@
 # beautifier-prettydiff
 
+[![Build Status](https://travis-ci.org/Unibeautify/beautifier-prettydiff.svg?branch=master)](https://travis-ci.org/Unibeautify/beautifier-prettydiff)
+
 > Pretty Diff beautifier for Unibeautify
 
 ## Installation
