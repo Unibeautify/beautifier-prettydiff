@@ -4,11 +4,17 @@
   "description": "Pretty Diff beautifier for Unibeautify",
   "main": "src/index.js",
   "dependencies": {
+    "prettydiff": "^99.0.1",
     "unibeautify-beautifier": "^0.1.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "npm-run-all": "^3.1.0",
+    "unibeautify": "^0.1.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ava": "ava --verbose",
+    "test": "npm run ava"
   },
   "repository": {
     "type": "git",
