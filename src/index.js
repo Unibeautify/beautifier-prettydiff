@@ -1,3 +1,4 @@
+'use strict';
 const prettydiff = require('prettydiff');
 const wrapBeautifier = require('unibeautify-beautifier').wrapBeautifier;
 const pkg = require('../package.json');
@@ -96,13 +97,9 @@ const Beautifier = {
     "Riot.js": true,
     XTemplate: true
   },
-  beautify({
-    text,
-    language,
-    options
-  }) {
+  beautify(data) {
     let lang = "auto";
-    switch (language.name) {
+    switch (data.language.name) {
       case "CSV":
         lang = "csv";
         break;
@@ -163,8 +160,8 @@ const Beautifier = {
       default:
         lang = "auto";
     }
-    const args = Object.assign({}, options, {
-      source: text,
+    const args = Object.assign({}, data.options, {
+      source: data.text,
       lang: lang,
       mode: "beautify"
     });
