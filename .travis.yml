@@ -8,3 +8,6 @@ node_js:
 os:
   - linux
   - osx
+cache:
+  directories:
+  - node_modules # NPM packages
