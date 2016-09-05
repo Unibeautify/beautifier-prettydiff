@@ -8,20 +8,20 @@ const Beautifier = {
   options: {
     _: {
       inchar: [
-        ["indent_with_tabs", "indent_char"], function({indent_with_tabs, indent_char}) {
-          if (indent_with_tabs === true) {
+        ["indent_with_tabs", "indent_char"], function(options) {
+          if (options.indent_with_tabs === true) {
             return "\t";
           } else {
-            return indent_char;
+            return options.indent_char;
           }
         }
       ],
       insize: [
-        ["indent_with_tabs", "indent_size"], function({indent_with_tabs, indent_size}) {
-          if (indent_with_tabs === true) {
+        ["indent_with_tabs", "indent_size"], function(options) {
+          if (options.indent_with_tabs === true) {
             return 1;
           } else {
-            return indent_size;
+            return options.indent_size;
           }
         }
       ],
@@ -29,8 +29,8 @@ const Beautifier = {
         return objsort || false;
       },
       preserve: [
-        ['preserve_newlines'], function({preserve_newlines}) {
-          if (preserve_newlines === true) {
+        ['preserve_newlines'], function(options) {
+          if (options.preserve_newlines === true) {
             return "all";
           } else {
             return "none";
@@ -39,8 +39,8 @@ const Beautifier = {
       ],
       cssinsertlines: "newline_between_rules",
       comments: [
-        ["indent_comments"], function({indent_comments}) {
-          if (indent_comments === false) {
+        ["indent_comments"], function(options) {
+          if (options.indent_comments === false) {
             return "noindent";
           } else {
             return "indent";
@@ -50,8 +50,8 @@ const Beautifier = {
       force: "force_indentation",
       quoteConvert: "convert_quotes",
       vertical: [
-        ['align_assignments'], function({align_assignments}) {
-          if (align_assignments === true) {
+        ['align_assignments'], function(options) {
+          if (options.align_assignments === true) {
             return "all";
           } else {
             return "none";
@@ -63,8 +63,8 @@ const Beautifier = {
       noleadzero: "no_lead_zero",
       endcomma: "end_with_comma",
       methodchain: [
-        ['break_chained_methods'], function({break_chained_methods}) {
-          if (break_chained_methods === true) {
+        ['break_chained_methods'], function(options) {
+          if (options.break_chained_methods === true) {
             return false;
           } else {
             return true;
