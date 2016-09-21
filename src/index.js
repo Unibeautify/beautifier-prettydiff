@@ -85,11 +85,14 @@ const Beautifier = {
     Spacebars: true,
     JSX: true,
     JavaScript: true,
+    Java: true,
     CSS: true,
+    "C#": true,
     SCSS: true,
     Sass: true,
     JSON: true,
     TSS: true,
+    Typescript: true,
     Twig: true,
     LESS: true,
     Swig: true,
@@ -135,6 +138,9 @@ const Beautifier = {
       case "JavaScript":
         lang = "javascript";
         break;
+      case "Java":
+        lang = "java";
+        break;
       case "JSON":
         lang = "json";
         break;
@@ -143,6 +149,9 @@ const Beautifier = {
         break;
       case "JSTL":
         lang = "jsp";
+        break;
+      case "C#":
+        lang = "cs";
         break;
       case "CSS":
         lang = "css";
@@ -156,6 +165,9 @@ const Beautifier = {
         break;
       case "TSS":
         lang = "tss";
+        break;
+      case "Typescript":
+        lang = "ts";
         break;
       default:
         lang = "auto";
