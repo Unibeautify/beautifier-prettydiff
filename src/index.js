@@ -92,7 +92,7 @@ const Beautifier = {
     Sass: true,
     JSON: true,
     TSS: true,
-    Typescript: true,
+    TypeScript: true,
     Twig: true,
     LESS: true,
     Swig: true,
@@ -166,7 +166,7 @@ const Beautifier = {
       case "TSS":
         lang = "tss";
         break;
-      case "Typescript":
+      case "TypeScript":
         lang = "ts";
         break;
       default:
