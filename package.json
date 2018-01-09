@@ -32,5 +32,15 @@
   "bugs": {
     "url": "https://github.com/Unibeautify/beautifier-prettydiff/issues"
   },
-  "homepage": "https://github.com/Unibeautify/beautifier-prettydiff#readme"
+  "homepage": "https://github.com/Unibeautify/beautifier-prettydiff#readme",
+  "providedServices": {
+    "unibeautify": {
+      "versions": {
+        "1.0.0": "provideBeautifier"
+      }
+    }
+  },
+  "package-deps": [
+    "atom-beautify"
+  ]
 }
