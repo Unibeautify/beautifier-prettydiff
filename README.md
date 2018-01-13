@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-npm install --global beautifier-prettydiff
+npm install --global @unibeautify/beautifier-prettydiff
 ```
 
 ## Usage
