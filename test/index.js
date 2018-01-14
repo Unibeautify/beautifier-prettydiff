@@ -1,6 +1,6 @@
 import test from "ava";
 import {newUnibeautify, Beautifier} from "unibeautify";
-const beautifier = require('../src/');
+const beautifier = require('../dist/');
 
 test.beforeEach((t) => {
   t.context.unibeautify = newUnibeautify();
