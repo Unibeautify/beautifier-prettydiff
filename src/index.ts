@@ -72,8 +72,8 @@ export const beautifier: Beautifier = {
             return true;
           }
         }
-      ]
-      //,ternaryline: "preserve_ternary_lines"
+      ],
+      ternaryline: "preserve_ternary_lines"
     },
     CSV: true,
     ColdFusion: true,
