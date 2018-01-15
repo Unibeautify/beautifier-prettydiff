@@ -14,6 +14,3 @@ CSS:
 HTML:
   indent_char: " "
   indent_size: 2
-JSON:
-  indent_char: " "
-  indent_size: 2
