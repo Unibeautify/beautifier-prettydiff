@@ -79,7 +79,7 @@ export const beautifier: Beautifier = {
           }
         }
       ],
-      ternaryline: "preserve_ternary_lines"
+      ternaryline: "multiline_ternary"
     },
     CSV: true,
     ColdFusion: true,
