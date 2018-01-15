@@ -1,6 +1,6 @@
 import { Beautifier, Language } from "unibeautify";
 import { wrapBeautifier, AtomPackage } from "unibeautify-beautifier";
-const prettydiff = require('prettydiff2');
+const prettydiff = require("prettydiff2");
 
 const pkg = require("../package.json");
 
@@ -10,7 +10,8 @@ export const beautifier: Beautifier = {
   options: {
     _: {
       inchar: [
-        ["indent_with_tabs", "indent_char"], function(options) {
+        ["indent_with_tabs", "indent_char"],
+        function(options) {
           if (options.indent_with_tabs === true) {
             return "\t";
           } else {
@@ -19,7 +20,8 @@ export const beautifier: Beautifier = {
         }
       ],
       insize: [
-        ["indent_with_tabs", "indent_size"], function(options) {
+        ["indent_with_tabs", "indent_size"],
+        function(options) {
           if (options.indent_with_tabs === true) {
             return 1;
           } else {
@@ -31,7 +33,8 @@ export const beautifier: Beautifier = {
         return objsort || false;
       },
       preserve: [
-        ['preserve_newlines'], function(options) {
+        ["preserve_newlines"],
+        function(options) {
           if (options.preserve_newlines === true) {
             return "all";
           } else {
@@ -41,7 +44,8 @@ export const beautifier: Beautifier = {
       ],
       cssinsertlines: "newline_between_rules",
       comments: [
-        ["indent_comments"], function(options) {
+        ["indent_comments"],
+        function(options) {
           if (options.indent_comments === false) {
             return "noindent";
           } else {
@@ -52,7 +56,8 @@ export const beautifier: Beautifier = {
       force: "force_indentation",
       quoteConvert: "convert_quotes",
       vertical: [
-        ['align_assignments'], function(options) {
+        ["align_assignments"],
+        function(options) {
           if (options.align_assignments === true) {
             return "all";
           } else {
@@ -65,7 +70,8 @@ export const beautifier: Beautifier = {
       noleadzero: "no_lead_zero",
       endcomma: "end_with_comma",
       methodchain: [
-        ['break_chained_methods'], function(options) {
+        ["break_chained_methods"],
+        function(options) {
           if (options.break_chained_methods === true) {
             return false;
           } else {
