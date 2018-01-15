@@ -79,7 +79,18 @@ export const beautifier: Beautifier = {
           }
         }
       ],
-      ternaryline: "multiline_ternary"
+      ternaryline: [
+        ["multiline_ternary"],
+        function(options) {
+          if(options.multiline_ternary === "always") {
+            return false;
+          } else if(options.multiline_ternary === "never") {
+            return true;
+          } else {
+            return undefined;
+          }
+        }
+      ]
     },
     CSV: true,
     ColdFusion: true,
