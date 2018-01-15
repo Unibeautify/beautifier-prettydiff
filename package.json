@@ -6,7 +6,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "ava": "ava --verbose",
-    "test": "npm run ava"
+    "test": "tsc; npm run ava"
   },
   "repository": {
     "type": "git",
