@@ -5,8 +5,10 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc",
     "ava": "ava --verbose",
-    "test": "tsc; npm run ava"
+    "test": "npm run ava"
   },
   "repository": {
     "type": "git",
@@ -31,7 +33,7 @@
   },
   "devDependencies": {
     "@types/node": "^8.5.7",
-    "ava": "^0.16.0",
+    "ava": "^0.24.0",
     "npm-run-all": "^3.1.0",
     "typescript": "^2.6.2",
     "unibeautify": "^0.2.0"
