@@ -81,13 +81,14 @@ export const beautifier: Beautifier = {
       ],
       ternaryline: [
         ["multiline_ternary"],
-        function(options) {
-          if (options.multiline_ternary === "always") {
-            return false;
-          } else if (options.multiline_ternary === "never") {
-            return true;
-          } else {
-            return undefined;
+        (options): boolean | undefined => {
+          switch (options.multiline_ternary) {
+            case "always":
+              return false;
+            case "never":
+              return true;
+            default:
+              return undefined;
           }
         }
       ]
