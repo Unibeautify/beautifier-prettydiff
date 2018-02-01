@@ -45,7 +45,7 @@ test("should successfully beautify JavaScript text with double quotes", t => {
         JavaScript: {
           indent_char: " ",
           indent_size: 2,
-          convert_quotes: "double"
+          quotes: "double"
         }
       },
       text

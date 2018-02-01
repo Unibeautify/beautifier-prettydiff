@@ -54,7 +54,7 @@ export const beautifier: Beautifier = {
         }
       ],
       force: "force_indentation",
-      quoteConvert: "convert_quotes",
+      quoteConvert: "quotes",
       vertical: [
         ["align_assignments"],
         function(options) {
@@ -67,7 +67,7 @@ export const beautifier: Beautifier = {
       ],
       wrap: "wrap_line_length",
       space: "space_after_anon_function",
-      noleadzero: "no_lead_zero",
+      noleadzero: "no_leading_zero",
       endcomma: "end_with_comma",
       methodchain: [
         ["break_chained_methods"],
