@@ -1,12 +1,11 @@
 import { Beautifier, Language } from "unibeautify";
-import { wrapBeautifier, AtomPackage } from "unibeautify-beautifier";
 const prettydiff = require("prettydiff2");
 
 const pkg = require("../package.json");
 
 export const beautifier: Beautifier = {
   name: "Pretty Diff",
-  // link: "https://github.com/prettydiff/prettydiff",
+  package: pkg,
   options: {
     _: {
       inchar: [
@@ -203,16 +202,4 @@ export const beautifier: Beautifier = {
   }
 };
 
-export function provideBeautifier() {
-  return beautifier;
-}
-
-const config = {};
-
-const wrappedBeautifier: Beautifier | AtomPackage = wrapBeautifier(
-  pkg,
-  beautifier,
-  config
-);
-export { Beautifier, AtomPackage };
-export default wrappedBeautifier;
+export default beautifier;
