@@ -1,9 +1,10 @@
-import { BeautifierOptions, OptionValues } from "unibeautify";
-
+import {BeautifierOptions, OptionValues} from "unibeautify";
 const commonOptions = {
   inchar: [
-    ["indent_with_tabs", "indent_char"],
-    (options: OptionValues): string | undefined => {
+    [
+      "indent_with_tabs", "indent_char"
+    ],
+    (options : OptionValues): string | undefined => {
       if (options.indent_with_tabs === true) {
         return "\t";
       } else {
@@ -12,8 +13,10 @@ const commonOptions = {
     }
   ],
   insize: [
-    ["indent_with_tabs", "indent_size"],
-    (options: OptionValues): number | undefined => {
+    [
+      "indent_with_tabs", "indent_size"
+    ],
+    (options : OptionValues): number | undefined => {
       if (options.indent_with_tabs === true) {
         return 1;
       } else {
@@ -23,7 +26,7 @@ const commonOptions = {
   ],
   preserve: [
     ["preserve_newlines"],
-    (options: OptionValues): string => {
+    (options : OptionValues): string => {
       if (options.preserve_newlines === true) {
         return "all";
       } else {
@@ -34,7 +37,7 @@ const commonOptions = {
   cssinsertlines: "newline_between_rules",
   comments: [
     ["indent_comments"],
-    (options: OptionValues): string => {
+    (options : OptionValues): string => {
       if (options.indent_comments === false) {
         return "noindent";
       } else {
@@ -46,7 +49,7 @@ const commonOptions = {
   quoteConvert: "quotes",
   vertical: [
     ["align_assignments"],
-    (options: OptionValues): string => {
+    (options : OptionValues): string => {
       if (options.align_assignments === true) {
         return "all";
       } else {
@@ -60,7 +63,7 @@ const commonOptions = {
   endcomma: "end_with_comma",
   methodchain: [
     ["break_chained_methods"],
-    (options: OptionValues): boolean => {
+    (options : OptionValues): boolean => {
       if (options.break_chained_methods === true) {
         return false;
       } else {
@@ -70,7 +73,7 @@ const commonOptions = {
   ],
   ternaryline: [
     ["multiline_ternary"],
-    (options: OptionValues): boolean | undefined => {
+    (options : OptionValues): boolean | undefined => {
       switch (options.multiline_ternary) {
         case "always":
           return false;
@@ -82,7 +85,6 @@ const commonOptions = {
     }
   ]
 };
-
 const options = {
   CSV: true,
   ColdFusion: true,

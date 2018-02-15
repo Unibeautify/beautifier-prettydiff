@@ -1,17 +1,14 @@
-import { Beautifier, Language, BeautifierBeautifyData } from "unibeautify";
+import {Beautifier, Language, BeautifierBeautifyData} from "unibeautify";
 const prettydiff = require("prettydiff2");
-
 import options from "./options";
-
 const pkg = require("../package.json");
-
 export const beautifier: Beautifier = {
   name: "Pretty Diff",
   package: pkg,
   options: {
     CSV: options.CSV,
     ColdFusion: options.ColdFusion,
-    "HTML+ERB": options[ "HTML+ERB" ],
+    "HTML+ERB": options["HTML+ERB"],
     EJS: options.EJS,
     HTML: options.HTML,
     Handlebars: options.Handlebars,
@@ -22,11 +19,11 @@ export const beautifier: Beautifier = {
     JavaScript: options.JavaScript,
     Java: options.Java,
     CSS: options.CSS,
-    "C#": options[ "C#" ],
+    "C#": options["C#"],
     SCSS: options.SCSS,
     Sass: options.Sass,
     JSON: options.JSON,
-    "Titanium Style Sheets": options[ "Titanium Style Sheets" ],
+    "Titanium Style Sheets": options["Titanium Style Sheets"],
     TypeScript: options.TypeScript,
     Twig: options.Twig,
     Less: options.Less,
@@ -35,7 +32,7 @@ export const beautifier: Beautifier = {
     Riot: options.Riot,
     XTemplate: options.XTemplate
   },
-  beautify(data: BeautifierBeautifyData) {
+  beautify(data : BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       let lang = "auto";
       switch (data.language.name) {
@@ -115,8 +112,7 @@ export const beautifier: Beautifier = {
       });
       const result = prettydiff(args);
       return resolve(result);
-    }) as any;
+    })as any;
   }
 };
-
 export default beautifier;
