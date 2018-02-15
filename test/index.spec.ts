@@ -1,22 +1,17 @@
-import test from "ava";
 import { newUnibeautify, Beautifier } from "unibeautify";
-import beautifier from "../dist";
-test.beforeEach(t => {
-  t.context.unibeautify = newUnibeautify();
-});
-test("should successfully install beautifier", t => {
-  const { unibeautify } = t.context;
+import beautifier from "../src";
+
+test("should successfully install beautifier", () => {
+  const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
-  t.is(unibeautify.beautifiers[0].name, beautifier.name);
+  expect(unibeautify.loadedBeautifiers.map(curr => curr.name)).toEqual([beautifier.name]);
 });
 
-test("should successfully beautify JavaScript text with 2 space indentation", t => {
-  const { unibeautify } = t.context;
+test("should successfully beautify JavaScript text with 2 space indentation", () => {
+  const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
   const text = `function test(n){return n+1;}`;
-  const beautifierResult = `function test(n) {
-  return n + 1;
-}`;
+  const beautifierResult = `function test(n) {\n  return n + 1;\n}`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",
@@ -29,12 +24,12 @@ test("should successfully beautify JavaScript text with 2 space indentation", t 
       text
     })
     .then(results => {
-      t.is(results, beautifierResult);
+      expect(results).toBe(beautifierResult);
     });
 });
 
-test("should successfully beautify JavaScript text with double quotes", t => {
-  const { unibeautify } = t.context;
+test("should successfully beautify JavaScript text with double quotes", () => {
+  const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
   const text = `console.log('hello world');`;
   const beautifierResult = `console.log("hello world");`;
@@ -51,6 +46,6 @@ test("should successfully beautify JavaScript text with double quotes", t => {
       text
     })
     .then(results => {
-      t.is(results, beautifierResult);
+      expect(results).toBe(beautifierResult);
     });
 });

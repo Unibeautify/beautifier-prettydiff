@@ -1,5 +1,7 @@
-import { Beautifier, Language } from "unibeautify";
+import { Beautifier, Language, BeautifierBeautifyData } from "unibeautify";
 const prettydiff = require("prettydiff2");
+
+import options from "./options";
 
 const pkg = require("../package.json");
 
@@ -7,118 +9,33 @@ export const beautifier: Beautifier = {
   name: "Pretty Diff",
   package: pkg,
   options: {
-    _: {
-      inchar: [
-        ["indent_with_tabs", "indent_char"],
-        function(options) {
-          if (options.indent_with_tabs === true) {
-            return "\t";
-          } else {
-            return options.indent_char;
-          }
-        }
-      ],
-      insize: [
-        ["indent_with_tabs", "indent_size"],
-        function(options) {
-          if (options.indent_with_tabs === true) {
-            return 1;
-          } else {
-            return options.indent_size;
-          }
-        }
-      ],
-      objsort: function(objsort) {
-        return objsort || false;
-      },
-      preserve: [
-        ["preserve_newlines"],
-        function(options) {
-          if (options.preserve_newlines === true) {
-            return "all";
-          } else {
-            return "none";
-          }
-        }
-      ],
-      cssinsertlines: "newline_between_rules",
-      comments: [
-        ["indent_comments"],
-        function(options) {
-          if (options.indent_comments === false) {
-            return "noindent";
-          } else {
-            return "indent";
-          }
-        }
-      ],
-      force: "force_indentation",
-      quoteConvert: "quotes",
-      vertical: [
-        ["align_assignments"],
-        function(options) {
-          if (options.align_assignments === true) {
-            return "all";
-          } else {
-            return "none";
-          }
-        }
-      ],
-      wrap: "wrap_line_length",
-      space: "space_after_anon_function",
-      noleadzero: "no_leading_zero",
-      endcomma: "end_with_comma",
-      methodchain: [
-        ["break_chained_methods"],
-        function(options) {
-          if (options.break_chained_methods === true) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-      ],
-      ternaryline: [
-        ["multiline_ternary"],
-        (options): boolean | undefined => {
-          switch (options.multiline_ternary) {
-            case "always":
-              return false;
-            case "never":
-              return true;
-            default:
-              return undefined;
-          }
-        }
-      ]
-    },
-    CSV: true,
-    ColdFusion: true,
-    "HTML+ERB": true,
-    EJS: true,
-    HTML: true,
-    Handlebars: true,
-    XML: true,
-    SVG: true,
-    Spacebars: true,
-    JSX: true,
-    JavaScript: true,
-    Java: true,
-    CSS: true,
-    "C#": true,
-    SCSS: true,
-    Sass: true,
-    JSON: true,
-    "Titanium Style Sheets": true,
-    TypeScript: true,
-    Twig: true,
-    Less: true,
-    Swig: true,
-    Visualforce: true,
-    Riot: true,
-    XTemplate: true
+    CSV: options.CSV,
+    ColdFusion: options.ColdFusion,
+    "HTML+ERB": options[ "HTML+ERB" ],
+    EJS: options.EJS,
+    HTML: options.HTML,
+    Handlebars: options.Handlebars,
+    XML: options.XML,
+    SVG: options.SVG,
+    Spacebars: options.Spacebars,
+    JSX: options.JSX,
+    JavaScript: options.JavaScript,
+    Java: options.Java,
+    CSS: options.CSS,
+    "C#": options[ "C#" ],
+    SCSS: options.SCSS,
+    Sass: options.Sass,
+    JSON: options.JSON,
+    "Titanium Style Sheets": options[ "Titanium Style Sheets" ],
+    TypeScript: options.TypeScript,
+    Twig: options.Twig,
+    Less: options.Less,
+    Swig: options.Swig,
+    Visualforce: options.Visualforce,
+    Riot: options.Riot,
+    XTemplate: options.XTemplate
   },
-  beautify(data) {
+  beautify(data: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       let lang = "auto";
       switch (data.language.name) {
