@@ -1,6 +1,19 @@
 import { BeautifierOptions, OptionValues } from "unibeautify";
 
 const commonOptions = {
+  comments: [
+    ["indent_comments"],
+    (options: OptionValues): string => {
+      if (options.indent_comments === false) {
+        return "noindent";
+      } else {
+        return "indent";
+      }
+    }
+  ],
+  cssinsertlines: "newline_between_rules",
+  endcomma: "end_with_comma",
+  force: "force_indentation",
   inchar: [
     ["indent_with_tabs", "indent_char"],
     (options: OptionValues): string | undefined => {
@@ -21,43 +34,6 @@ const commonOptions = {
       }
     }
   ],
-  preserve: [
-    ["preserve_newlines"],
-    (options: OptionValues): string => {
-      if (options.preserve_newlines === true) {
-        return "all";
-      } else {
-        return "none";
-      }
-    }
-  ],
-  cssinsertlines: "newline_between_rules",
-  comments: [
-    ["indent_comments"],
-    (options: OptionValues): string => {
-      if (options.indent_comments === false) {
-        return "noindent";
-      } else {
-        return "indent";
-      }
-    }
-  ],
-  force: "force_indentation",
-  quoteConvert: "quotes",
-  vertical: [
-    ["align_assignments"],
-    (options: OptionValues): string => {
-      if (options.align_assignments === true) {
-        return "all";
-      } else {
-        return "none";
-      }
-    }
-  ],
-  wrap: "wrap_line_length",
-  space: "space_after_anon_function",
-  noleadzero: "no_leading_zero",
-  endcomma: "end_with_comma",
   methodchain: [
     ["break_chained_methods"],
     (options: OptionValues): boolean => {
@@ -68,6 +44,19 @@ const commonOptions = {
       }
     }
   ],
+  noleadzero: "no_leading_zero",
+  preserve: [
+    ["preserve_newlines"],
+    (options: OptionValues): string => {
+      if (options.preserve_newlines === true) {
+        return "all";
+      } else {
+        return "none";
+      }
+    }
+  ],
+  quoteConvert: "quotes",
+  space: "space_after_anon_function",
   ternaryline: [
     ["multiline_ternary"],
     (options: OptionValues): boolean | undefined => {
@@ -80,36 +69,96 @@ const commonOptions = {
           return undefined;
       }
     }
-  ]
+  ],
+  vertical: [
+    ["align_assignments"],
+    (options: OptionValues): string => {
+      if (options.align_assignments === true) {
+        return "all";
+      } else {
+        return "none";
+      }
+    }
+  ],
+  wrap: "wrap_line_length"
 };
 
 const options = {
-  CSV: true,
-  ColdFusion: true,
-  "HTML+ERB": true,
-  EJS: true,
-  HTML: true,
-  Handlebars: true,
-  XML: true,
-  SVG: true,
-  Spacebars: true,
-  JSX: true,
+  "C#": {
+    ...commonOptions
+  },
+  ColdFusion: {
+    ...commonOptions
+  },
+  CSS: {
+    ...commonOptions
+  },
+  CSV: {
+    ...commonOptions
+  },
+  EJS: {
+    ...commonOptions
+  },
+  Handlebars: {
+    ...commonOptions
+  },
+  HTML: {
+    ...commonOptions
+  },
+  "HTML+ERB": {
+    ...commonOptions
+  },
+  Less: {
+    ...commonOptions
+  },
+  Java: {
+    ...commonOptions
+  },
   JavaScript: {
     ...commonOptions
   },
-  Java: true,
-  CSS: true,
-  "C#": true,
-  SCSS: true,
-  Sass: true,
-  JSON: true,
-  "Titanium Style Sheets": true,
-  TypeScript: true,
-  Twig: true,
-  Less: true,
-  Swig: true,
-  Visualforce: true,
-  Riot: true,
-  XTemplate: true
+  JSON: {
+    ...commonOptions
+  },
+  JSX: {
+    ...commonOptions
+  },
+  Riot: {
+    ...commonOptions
+  },
+  Sass: {
+    ...commonOptions
+  },
+  SCSS: {
+    ...commonOptions
+  },
+  Spacebars: {
+    ...commonOptions
+  },
+  SVG: {
+    ...commonOptions
+  },  
+  Swig: {
+    ...commonOptions
+  },
+  "Titanium Style Sheets": {
+    ...commonOptions
+  },
+  Twig: {
+    ...commonOptions
+  },
+  TypeScript: {
+    ...commonOptions
+  },
+  Visualforce: {
+    ...commonOptions
+  },
+  XML: {
+    ...commonOptions
+  },
+  XTemplate: {
+    ...commonOptions
+  }
 };
+
 export default options;
