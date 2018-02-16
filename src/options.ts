@@ -1,5 +1,5 @@
-import { BeautifierOptions, OptionValues } from "unibeautify";
-const commonOptions = {
+import { BeautifierOptions, OptionValues, BeautifierLanguageOptions } from "unibeautify";
+const commonOptions: BeautifierLanguageOptions = {
   comments: [
     ["indent_comments"],
     (options: OptionValues): string => {
@@ -36,11 +36,7 @@ const commonOptions = {
   methodchain: [
     ["break_chained_methods"],
     (options: OptionValues): boolean => {
-      if (options.break_chained_methods === true) {
-        return false;
-      } else {
-        return true;
-      }
+      return !(options.break_chained_methods === true);
     },
   ],
   noleadzero: "no_leading_zero",
@@ -81,81 +77,18 @@ const commonOptions = {
   ],
   wrap: "wrap_line_length",
 };
-const options: BeautifierOptions = {
-  "C#": {
-    ...commonOptions,
+const options = {
+  Markup: {
+    ...commonOptions
   },
-  ColdFusion: {
-    ...commonOptions,
+  Markdown: {
+    ...commonOptions
   },
-  CSS: {
-    ...commonOptions,
+  Script: {
+    ...commonOptions
   },
-  CSV: {
-    ...commonOptions,
-  },
-  EJS: {
-    ...commonOptions,
-  },
-  Handlebars: {
-    ...commonOptions,
-  },
-  HTML: {
-    ...commonOptions,
-  },
-  "HTML+ERB": {
-    ...commonOptions,
-  },
-  Less: {
-    ...commonOptions,
-  },
-  Java: {
-    ...commonOptions,
-  },
-  JavaScript: {
-    ...commonOptions,
-  },
-  JSON: {
-    ...commonOptions,
-  },
-  JSX: {
-    ...commonOptions,
-  },
-  Riot: {
-    ...commonOptions,
-  },
-  Sass: {
-    ...commonOptions,
-  },
-  SCSS: {
-    ...commonOptions,
-  },
-  Spacebars: {
-    ...commonOptions,
-  },
-  SVG: {
-    ...commonOptions,
-  },
-  Swig: {
-    ...commonOptions,
-  },
-  "Titanium Style Sheets": {
-    ...commonOptions,
-  },
-  Twig: {
-    ...commonOptions,
-  },
-  TypeScript: {
-    ...commonOptions,
-  },
-  Visualforce: {
-    ...commonOptions,
-  },
-  XML: {
-    ...commonOptions,
-  },
-  XTemplate: {
-    ...commonOptions,
-  },
+  Style: {
+    ...commonOptions
+  }
 };
 export default options;
