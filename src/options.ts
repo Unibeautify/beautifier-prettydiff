@@ -1,4 +1,8 @@
-import { BeautifierOptions, OptionValues, BeautifierLanguageOptions } from "unibeautify";
+import {
+  BeautifierOptions,
+  OptionValues,
+  BeautifierLanguageOptions,
+} from "unibeautify";
 const commonOptions: BeautifierLanguageOptions = {
   comments: [
     ["indent_comments"],
@@ -79,16 +83,16 @@ const commonOptions: BeautifierLanguageOptions = {
 };
 const options = {
   Markup: {
-    ...commonOptions
+    ...commonOptions,
   },
   Markdown: {
-    ...commonOptions
+    ...commonOptions,
   },
   Script: {
-    ...commonOptions
+    ...commonOptions,
   },
   Style: {
-    ...commonOptions
-  }
+    ...commonOptions,
+  },
 };
 export default options;
