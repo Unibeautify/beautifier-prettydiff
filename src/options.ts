@@ -83,7 +83,7 @@ const commonOptions = {
   wrap: "wrap_line_length"
 };
 
-const options = {
+const options: BeautifierOptions = {
   "C#": {
     ...commonOptions
   },
