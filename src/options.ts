@@ -1,5 +1,4 @@
 import { BeautifierOptions, OptionValues } from "unibeautify";
-
 const commonOptions = {
   comments: [
     ["indent_comments"],
@@ -9,7 +8,7 @@ const commonOptions = {
       } else {
         return "indent";
       }
-    }
+    },
   ],
   cssinsertlines: "newline_between_rules",
   endcomma: "end_with_comma",
@@ -22,7 +21,7 @@ const commonOptions = {
       } else {
         return options.indent_char;
       }
-    }
+    },
   ],
   insize: [
     ["indent_with_tabs", "indent_size"],
@@ -32,7 +31,7 @@ const commonOptions = {
       } else {
         return options.indent_size;
       }
-    }
+    },
   ],
   methodchain: [
     ["break_chained_methods"],
@@ -42,7 +41,7 @@ const commonOptions = {
       } else {
         return true;
       }
-    }
+    },
   ],
   noleadzero: "no_leading_zero",
   preserve: [
@@ -53,7 +52,7 @@ const commonOptions = {
       } else {
         return "none";
       }
-    }
+    },
   ],
   quoteConvert: "quotes",
   space: "space_after_anon_function",
@@ -68,7 +67,7 @@ const commonOptions = {
         default:
           return undefined;
       }
-    }
+    },
   ],
   vertical: [
     ["align_assignments"],
@@ -78,87 +77,85 @@ const commonOptions = {
       } else {
         return "none";
       }
-    }
+    },
   ],
-  wrap: "wrap_line_length"
+  wrap: "wrap_line_length",
 };
-
 const options: BeautifierOptions = {
   "C#": {
-    ...commonOptions
+    ...commonOptions,
   },
   ColdFusion: {
-    ...commonOptions
+    ...commonOptions,
   },
   CSS: {
-    ...commonOptions
+    ...commonOptions,
   },
   CSV: {
-    ...commonOptions
+    ...commonOptions,
   },
   EJS: {
-    ...commonOptions
+    ...commonOptions,
   },
   Handlebars: {
-    ...commonOptions
+    ...commonOptions,
   },
   HTML: {
-    ...commonOptions
+    ...commonOptions,
   },
   "HTML+ERB": {
-    ...commonOptions
+    ...commonOptions,
   },
   Less: {
-    ...commonOptions
+    ...commonOptions,
   },
   Java: {
-    ...commonOptions
+    ...commonOptions,
   },
   JavaScript: {
-    ...commonOptions
+    ...commonOptions,
   },
   JSON: {
-    ...commonOptions
+    ...commonOptions,
   },
   JSX: {
-    ...commonOptions
+    ...commonOptions,
   },
   Riot: {
-    ...commonOptions
+    ...commonOptions,
   },
   Sass: {
-    ...commonOptions
+    ...commonOptions,
   },
   SCSS: {
-    ...commonOptions
+    ...commonOptions,
   },
   Spacebars: {
-    ...commonOptions
+    ...commonOptions,
   },
   SVG: {
-    ...commonOptions
-  },  
+    ...commonOptions,
+  },
   Swig: {
-    ...commonOptions
+    ...commonOptions,
   },
   "Titanium Style Sheets": {
-    ...commonOptions
+    ...commonOptions,
   },
   Twig: {
-    ...commonOptions
+    ...commonOptions,
   },
   TypeScript: {
-    ...commonOptions
+    ...commonOptions,
   },
   Visualforce: {
-    ...commonOptions
+    ...commonOptions,
   },
   XML: {
-    ...commonOptions
+    ...commonOptions,
   },
   XTemplate: {
-    ...commonOptions
-  }
+    ...commonOptions,
+  },
 };
-
 export default options;

@@ -1,12 +1,12 @@
 import { newUnibeautify, Beautifier } from "unibeautify";
 import beautifier from "../src";
-
 test("should successfully install beautifier", () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
-  expect(unibeautify.loadedBeautifiers.map(curr => curr.name)).toEqual([beautifier.name]);
+  expect(unibeautify.loadedBeautifiers.map(curr => curr.name)).toEqual([
+    beautifier.name,
+  ]);
 });
-
 test("should successfully beautify JavaScript text with 2 space indentation", () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
@@ -18,16 +18,15 @@ test("should successfully beautify JavaScript text with 2 space indentation", ()
       options: {
         JavaScript: {
           indent_char: " ",
-          indent_size: 2
-        }
+          indent_size: 2,
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
     });
 });
-
 test("should successfully beautify JavaScript text with double quotes", () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
@@ -40,10 +39,10 @@ test("should successfully beautify JavaScript text with double quotes", () => {
         JavaScript: {
           indent_char: " ",
           indent_size: 2,
-          quotes: "double"
-        }
+          quotes: "double",
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
