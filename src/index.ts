@@ -1,124 +1,38 @@
-import { Beautifier, Language } from "unibeautify";
+import { Beautifier, Language, BeautifierBeautifyData } from "unibeautify";
 const prettydiff = require("prettydiff2");
-
+import options from "./options";
 const pkg = require("../package.json");
-
 export const beautifier: Beautifier = {
   name: "Pretty Diff",
   package: pkg,
   options: {
-    _: {
-      inchar: [
-        ["indent_with_tabs", "indent_char"],
-        function(options) {
-          if (options.indent_with_tabs === true) {
-            return "\t";
-          } else {
-            return options.indent_char;
-          }
-        }
-      ],
-      insize: [
-        ["indent_with_tabs", "indent_size"],
-        function(options) {
-          if (options.indent_with_tabs === true) {
-            return 1;
-          } else {
-            return options.indent_size;
-          }
-        }
-      ],
-      objsort: function(objsort) {
-        return objsort || false;
-      },
-      preserve: [
-        ["preserve_newlines"],
-        function(options) {
-          if (options.preserve_newlines === true) {
-            return "all";
-          } else {
-            return "none";
-          }
-        }
-      ],
-      cssinsertlines: "newline_between_rules",
-      comments: [
-        ["indent_comments"],
-        function(options) {
-          if (options.indent_comments === false) {
-            return "noindent";
-          } else {
-            return "indent";
-          }
-        }
-      ],
-      force: "force_indentation",
-      quoteConvert: "quotes",
-      vertical: [
-        ["align_assignments"],
-        function(options) {
-          if (options.align_assignments === true) {
-            return "all";
-          } else {
-            return "none";
-          }
-        }
-      ],
-      wrap: "wrap_line_length",
-      space: "space_after_anon_function",
-      noleadzero: "no_leading_zero",
-      endcomma: "end_with_comma",
-      methodchain: [
-        ["break_chained_methods"],
-        function(options) {
-          if (options.break_chained_methods === true) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-      ],
-      ternaryline: [
-        ["multiline_ternary"],
-        (options): boolean | undefined => {
-          switch (options.multiline_ternary) {
-            case "always":
-              return false;
-            case "never":
-              return true;
-            default:
-              return undefined;
-          }
-        }
-      ]
-    },
-    CSV: true,
-    ColdFusion: true,
-    "HTML+ERB": true,
-    EJS: true,
-    HTML: true,
-    Handlebars: true,
-    XML: true,
-    SVG: true,
-    Spacebars: true,
-    JSX: true,
-    JavaScript: true,
-    Java: true,
-    CSS: true,
-    "C#": true,
-    SCSS: true,
-    Sass: true,
-    JSON: true,
-    "Titanium Style Sheets": true,
-    TypeScript: true,
-    Twig: true,
-    Less: true,
-    Swig: true,
-    Visualforce: true,
-    Riot: true,
-    XTemplate: true
+    "C#": options.Script,
+    ColdFusion: options.Markup,
+    CSS: options.Style,
+    // CSV: options.CSV,
+    EJS: options.Script,
+    Handlebars: options.Markup,
+    HTML: options.Markup,
+    "HTML+ERB": options.Markup,
+    Java: options.Script,
+    JavaScript: options.Script,
+    JSON: options.Style,
+    JSX: options.Script,
+    Less: options.Style,
+    Riot: options.Script,
+    Sass: options.Style,
+    SCSS: options.Style,
+    Spacebars: options.Markup,
+    SVG: options.Markup,
+    Swig: options.Script,
+    "Titanium Style Sheets": options.Style,
+    Twig: options.Script,
+    TypeScript: options.Script,
+    Visualforce: options.Markup,
+    XML: options.Markup,
+    XTemplate: options.Markup,
   },
-  beautify(data) {
+  beautify(data: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       let lang = "auto";
       switch (data.language.name) {
@@ -194,12 +108,11 @@ export const beautifier: Beautifier = {
       const args = Object.assign({}, data.options, {
         source: data.text,
         lang: lang,
-        mode: "beautify"
+        mode: "beautify",
       });
       const result = prettydiff(args);
       return resolve(result);
     }) as any;
-  }
+  },
 };
-
 export default beautifier;

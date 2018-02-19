@@ -7,9 +7,10 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc",
-    "ava": "ava --verbose",
-    "test": "npm-run-all compile:ts ava",
-    "compile:ts": "tsc"
+    "jest": "jest",
+    "test": "npm-run-all compile:ts lint jest",
+    "compile:ts": "tsc",
+    "lint": "tslint {src,test}/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,15 @@
   },
   "devDependencies": {
     "@types/node": "^8.5.7",
-    "ava": "^0.24.0",
+    "@types/jest": "^22.1.2",
+    "jest": "^22.2.2",
     "npm-run-all": "^3.1.0",
     "prettydiff2": "^2.2.7",
     "typescript": "^2.6.2",
+    "ts-jest": "^22.0.4",
+    "tslint": "^5.7.0",
+    "tslint-clean-code": "^0.2.3",
+    "tslint-microsoft-contrib": "^5.0.1",
     "unibeautify": "^0.7.0"
   }
 }
