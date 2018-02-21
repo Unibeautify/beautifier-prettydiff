@@ -14,9 +14,7 @@ const commonOptions: BeautifierLanguageOptions = {
       }
     },
   ],
-  cssinsertlines: "newline_between_rules",
   endcomma: "end_with_comma",
-  force: "force_indentation",
   inchar: [
     ["indent_with_tabs", "indent_char"],
     (options: OptionValues): string | undefined => {
@@ -44,16 +42,7 @@ const commonOptions: BeautifierLanguageOptions = {
     },
   ],
   noleadzero: "no_leading_zero",
-  preserve: [
-    ["preserve_newlines"],
-    (options: OptionValues): string => {
-      if (options.preserve_newlines === true) {
-        return "all";
-      } else {
-        return "none";
-      }
-    },
-  ],
+  preserve: "max_preserve_newlines",
   quoteConvert: "quotes",
   space: "space_after_anon_function",
   ternaryline: [
@@ -81,9 +70,16 @@ const commonOptions: BeautifierLanguageOptions = {
   ],
   wrap: "wrap_line_length",
 };
+const styleOptions: BeautifierLanguageOptions = {
+  cssinsertlines: "newline_between_rules",
+};
+const markupOptions: BeautifierLanguageOptions = {
+  force_indent: "force_indentation",
+};
 const options = {
   Markup: {
     ...commonOptions,
+    ...markupOptions,
   },
   Markdown: {
     ...commonOptions,
@@ -93,6 +89,7 @@ const options = {
   },
   Style: {
     ...commonOptions,
+    ...styleOptions,
   },
 };
 export default options;

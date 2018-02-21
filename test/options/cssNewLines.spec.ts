@@ -11,8 +11,7 @@ test(`should successfully beautify CSS text with new lines between rules`, () =>
       options: {
         CSS: {
           newline_between_rules: true,
-          indent_char: "\t",
-          indent_size: 1,
+          indent_with_tabs: true,
         },
       },
       text,
@@ -32,8 +31,7 @@ test(`should successfully beautify CSS text without new lines between rules`, ()
       options: {
         CSS: {
           newline_between_rules: false,
-          indent_char: "\t",
-          indent_size: 1,
+          indent_with_tabs: true,
         },
       },
       text,

@@ -3,18 +3,16 @@ import beautifier from "../../src";
 test(`should successfully beautify JavaScript text with comments indented`, () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
-  const text = `function test(n){
-/*this should indent*/return n+1;}`;
-  const beautifierResult = `function test(n) {
-    /* this should indent */
-    return n + 1;
-}`;
+  const text = `function test(n){\n/*this should indent*/return n+1;}`;
+  const beautifierResult = `function test(n) {\n\t/* this should indent */\n\treturn n + 1;\n}`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",
       options: {
         JavaScript: {
           indent_comments: true,
+          indent_char: "\t",
+          indent_size: 1,
         },
       },
       text,
@@ -26,18 +24,15 @@ test(`should successfully beautify JavaScript text with comments indented`, () =
 test(`should successfully beautify JavaScript text with comments not indented`, () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
-  const text = `function test(n){
-/*this should not indent*/return n+1;}`;
-  const beautifierResult = `function test(n) {
-/* this should not indent */
-    return n + 1;
-}`;
+  const text = `function test(n){\n\t/* this should not indent */\n\treturn n + 1;\n}`;
+  const beautifierResult = `function test(n) {\n/* this should not indent */\n\treturn n + 1;\n}`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",
       options: {
         JavaScript: {
           indent_comments: false,
+          indent_with_tabs: true,
         },
       },
       text,

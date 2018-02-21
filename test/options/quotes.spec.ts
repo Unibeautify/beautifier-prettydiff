@@ -5,7 +5,7 @@ test(`should successfully beautify JavaScript text with single quotes`, () => {
   unibeautify.loadBeautifier(beautifier);
   const quote = "'";
   const text = `console.log('hello world');\nconsole.log("hello world");\n`;
-  const beautifierResult = `console.log(${quote}hello world${quote});\nconsole.log(${quote}hello world${quote});`;
+  const beautifierResult = `console.log(${quote}hello world${quote});\nconsole.log(${quote}hello world${quote});\n`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",
@@ -25,7 +25,7 @@ test(`should successfully beautify JavaScript text with double quotes`, () => {
   unibeautify.loadBeautifier(beautifier);
   const quote = '"';
   const text = `console.log('hello world');\nconsole.log("hello world");\n`;
-  const beautifierResult = `console.log(${quote}hello world${quote});\nconsole.log(${quote}hello world${quote});`;
+  const beautifierResult = `console.log(${quote}hello world${quote});\nconsole.log(${quote}hello world${quote});\n`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",
