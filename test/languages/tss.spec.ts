@@ -1,20 +1,16 @@
 import { newUnibeautify, Beautifier } from "unibeautify";
 import beautifier from "../../src";
-
-test(`should successfully beautify JavaScript text `, () => {
+test(`should successfully beautify TSS text`, () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
-
-  const veryLongString = "very".repeat(10) + "longstring";
-  const text = `["${veryLongString}",\n"${veryLongString}"];`;
-  const beautifierResult = `["${veryLongString}", "${veryLongString}",];`;
-
+  const text = `".foo":{fontSize:'12dp'}`;
+  const beautifierResult = `".foo" : {\n\tfontSize: '12dp'\n}`;
   return unibeautify
     .beautify({
-      languageName: "JavaScript",
+      languageName: "Titanium Style Sheets",
       options: {
-        JavaScript: {
-
+        "Titanium Style Sheets": {
+          indent_with_tabs: true,
         }
       },
       text
