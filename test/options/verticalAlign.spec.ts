@@ -5,7 +5,10 @@ test(`should successfully beautify JavaScript text with assignments vertically a
   unibeautify.loadBeautifier(beautifier);
   const longVar = `veryveryverylong`;
   const text = `function test(){a=1,${longVar}=2}`;
-  const beautifierResult = `function test() {\n\ta` + (" ").repeat(longVar.length) + `= 1,\n\t${longVar} = 2\n}`;
+  const beautifierResult =
+    `function test() {\n\ta` +
+    " ".repeat(longVar.length) +
+    `= 1,\n\t${longVar} = 2\n}`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",
@@ -13,9 +16,9 @@ test(`should successfully beautify JavaScript text with assignments vertically a
         JavaScript: {
           align_assignments: true,
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
@@ -34,9 +37,9 @@ test(`should successfully beautify JavaScript text with assignments not vertiall
         JavaScript: {
           align_assignments: false,
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

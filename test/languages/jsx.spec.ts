@@ -13,9 +13,9 @@ test("should successfully beautify JSX text", () => {
       options: {
         JSX: {
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

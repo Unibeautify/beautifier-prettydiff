@@ -11,9 +11,9 @@ test(`should successfully beautify LESS text`, () => {
       options: {
         Less: {
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

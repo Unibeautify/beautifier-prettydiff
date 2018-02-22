@@ -13,9 +13,9 @@ System.out.println("Hello World!");\n\t}\n}`;
         Java: {
           indent_with_tabs: true,
           break_chained_methods: false,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

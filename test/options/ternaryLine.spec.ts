@@ -12,9 +12,9 @@ test(`should successfully beautify JavaScript text with ternary statements on di
         JavaScript: {
           multiline_ternary: "always",
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
@@ -23,10 +23,8 @@ test(`should successfully beautify JavaScript text with ternary statements on di
 test(`should successfully beautify JavaScript text with ternary statements on the same line`, () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
-
   const text = `var foo = bar > baz\n\t? value1\n\t: value2;`;
   const beautifierResult = `var foo = bar > baz ? value1: value2;`;
-
   return unibeautify
     .beautify({
       languageName: "JavaScript",
@@ -34,9 +32,9 @@ test(`should successfully beautify JavaScript text with ternary statements on th
         JavaScript: {
           multiline_ternary: "never",
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

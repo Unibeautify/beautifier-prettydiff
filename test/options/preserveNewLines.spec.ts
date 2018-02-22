@@ -14,9 +14,9 @@ test(`should successfully beautify JavaScript text `, () => {
         JSON: {
           indent_with_tabs: true,
           max_preserve_newlines: 3,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
