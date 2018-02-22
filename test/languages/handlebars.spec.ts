@@ -12,9 +12,9 @@ test(`should successfully beautify Handlebars text`, () => {
       options: {
         Handlebars: {
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

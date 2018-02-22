@@ -11,9 +11,9 @@ test(`should successfully beautify SASS/SCSS text`, () => {
       options: {
         Sass: {
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

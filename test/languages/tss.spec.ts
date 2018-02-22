@@ -11,9 +11,9 @@ test(`should successfully beautify TSS text`, () => {
       options: {
         "Titanium Style Sheets": {
           indent_with_tabs: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

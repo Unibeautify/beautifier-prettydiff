@@ -78,9 +78,7 @@ export const beautifier: Beautifier = {
         case "JSX":
           lang = "jsx";
           break;
-        // case "JSTL":
-        //   lang = "jsp";
-        //   break;
+        // case "JSTL":   lang = "jsp";   break;
         case "C#":
           lang = "cs";
           break;

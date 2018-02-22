@@ -12,9 +12,9 @@ test(`should successfully beautify HTML text by not force indenting`, () => {
         HTML: {
           indent_with_tabs: true,
           force_indentation: false,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
@@ -32,9 +32,9 @@ test(`should successfully beautify HTML text by force indenting`, () => {
         HTML: {
           indent_with_tabs: true,
           force_indentation: true,
-        }
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
