@@ -58,8 +58,6 @@ export const beautifier: Beautifier = {
           lang = "handlebars";
           break;
         case "SGML":
-          lang = "markup";
-          break;
         case "XML":
         case "Visualforce":
         case "SVG":
@@ -80,16 +78,16 @@ export const beautifier: Beautifier = {
         case "JSX":
           lang = "jsx";
           break;
-        case "JSTL":
-          lang = "jsp";
-          break;
+        // case "JSTL":
+        //   lang = "jsp";
+        //   break;
         case "C#":
           lang = "cs";
           break;
         case "CSS":
           lang = "css";
           break;
-        case "LESS":
+        case "Less":
           lang = "less";
           break;
         case "SCSS":
