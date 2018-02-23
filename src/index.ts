@@ -9,7 +9,7 @@ export const beautifier: Beautifier = {
     "C#": options.Script,
     ColdFusion: options.Markup,
     CSS: options.Style,
-    // CSV: options.CSV,
+    CSV: options.Markdown,
     EJS: options.Script,
     Handlebars: options.Markup,
     HTML: options.Markup,
@@ -39,14 +39,11 @@ export const beautifier: Beautifier = {
         case "CSV":
           lang = "csv";
           break;
-        case "Coldfusion":
-          lang = "html";
-          break;
         case "EJS":
         case "Twig":
           lang = "ejs";
           break;
-        case "ERB":
+        case "HTML+ERB":
           lang = "html_ruby";
           break;
         case "Handlebars":
@@ -64,6 +61,7 @@ export const beautifier: Beautifier = {
           lang = "xml";
           break;
         case "HTML":
+        case "Coldfusion":
           lang = "html";
           break;
         case "JavaScript":
@@ -92,7 +90,7 @@ export const beautifier: Beautifier = {
         case "Sass":
           lang = "scss";
           break;
-        case "TSS":
+        case "Titanium Style Sheets":
           lang = "tss";
           break;
         case "TypeScript":
