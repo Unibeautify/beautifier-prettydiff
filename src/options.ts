@@ -75,6 +75,6 @@ const options = {
   Markdown: commonOptions,
   Script: commonOptions,
   Style: styleOptions,
-  Common: commonOptions
+  Common: commonOptions,
 };
 export default options;
