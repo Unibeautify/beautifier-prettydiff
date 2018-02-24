@@ -11,7 +11,7 @@ test(`should successfully beautify JavaScript text with comments indented`, () =
       options: {
         JavaScript: {
           indent_comments: true,
-          indent_char: "\t",
+          indent_style: "tab",
           indent_size: 1,
         },
       },
@@ -32,7 +32,8 @@ test(`should successfully beautify JavaScript text with comments not indented`, 
       options: {
         JavaScript: {
           indent_comments: false,
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,

@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Unibeautify/beautifier-prettydiff#readme",
   "peerDependencies": {
-    "unibeautify": "^0.7.0",
+    "unibeautify": "^0.8.0",
     "prettydiff2": "^2.2.7"
   },
   "devDependencies": {
@@ -44,6 +44,6 @@
     "tslint": "^5.7.0",
     "tslint-clean-code": "^0.2.3",
     "tslint-microsoft-contrib": "^5.0.1",
-    "unibeautify": "^0.7.0"
+    "unibeautify": "^0.8.0"
   }
 }

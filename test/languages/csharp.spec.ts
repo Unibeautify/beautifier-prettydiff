@@ -10,7 +10,8 @@ test(`should successfully beautify C# text`, () => {
       languageName: "C#",
       options: {
         "C#": {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,

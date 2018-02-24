@@ -9,8 +9,7 @@ test(`should successfully beautify ERB text`, () => {
     .beautify({
       languageName: "HTML+ERB",
       options: {
-        "HTML+ERB": {
-        },
+        "HTML+ERB": {},
       },
       text,
     })

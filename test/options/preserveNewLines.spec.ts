@@ -12,7 +12,8 @@ test(`should successfully beautify JavaScript text `, () => {
       languageName: "JSON",
       options: {
         JSON: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
           max_preserve_newlines: 3,
         },
       },

@@ -10,7 +10,8 @@ test(`should successfully beautify TSS text`, () => {
       languageName: "Titanium Style Sheets",
       options: {
         "Titanium Style Sheets": {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,

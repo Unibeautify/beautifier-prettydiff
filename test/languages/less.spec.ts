@@ -10,7 +10,8 @@ test(`should successfully beautify LESS text`, () => {
       languageName: "Less",
       options: {
         Less: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,

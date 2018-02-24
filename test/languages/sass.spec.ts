@@ -10,7 +10,8 @@ test(`should successfully beautify SASS/SCSS text`, () => {
       languageName: "Sass",
       options: {
         Sass: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,

@@ -11,7 +11,8 @@ test(`should successfully beautify Handlebars text`, () => {
       languageName: "Handlebars",
       options: {
         Handlebars: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,
