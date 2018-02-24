@@ -12,7 +12,8 @@ test("should successfully beautify JSX text", () => {
       languageName: "JSX",
       options: {
         JSX: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,

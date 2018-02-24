@@ -15,7 +15,8 @@ test(`should successfully beautify JavaScript text with assignments vertically a
       options: {
         JavaScript: {
           align_assignments: true,
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,
@@ -36,7 +37,8 @@ test(`should successfully beautify JavaScript text with assignments not vertiall
       options: {
         JavaScript: {
           align_assignments: false,
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
         },
       },
       text,

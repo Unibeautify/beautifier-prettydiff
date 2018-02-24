@@ -9,8 +9,7 @@ test(`should successfully beautify CSV text`, () => {
     .beautify({
       languageName: "CSV",
       options: {
-        CSV: {
-        },
+        CSV: {},
       },
       text,
     })

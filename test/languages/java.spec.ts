@@ -11,7 +11,8 @@ System.out.println("Hello World!");\n\t}\n}`;
       languageName: "Java",
       options: {
         Java: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
           break_chained_methods: false,
         },
       },

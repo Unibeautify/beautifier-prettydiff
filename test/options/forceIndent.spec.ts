@@ -10,7 +10,8 @@ test(`should successfully beautify HTML text by not force indenting`, () => {
       languageName: "HTML",
       options: {
         HTML: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
           force_indentation: false,
         },
       },
@@ -30,7 +31,8 @@ test(`should successfully beautify HTML text by force indenting`, () => {
       languageName: "HTML",
       options: {
         HTML: {
-          indent_with_tabs: true,
+          indent_style: "tab",
+          indent_size: 1,
           force_indentation: true,
         },
       },

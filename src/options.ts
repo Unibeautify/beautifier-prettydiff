@@ -16,25 +16,16 @@ const commonOptions: BeautifierLanguageOptions = {
   ],
   endcomma: "end_with_comma",
   inchar: [
-    ["indent_with_tabs", "indent_char"],
+    ["indent_style"],
     (options: OptionValues): string | undefined => {
-      if (options.indent_with_tabs === true) {
+      if (options.indent_style === "tab") {
         return "\t";
-      } else {
-        return options.indent_char;
+      } else if (options.indent_style === "space") {
+        return " ";
       }
     },
   ],
-  insize: [
-    ["indent_with_tabs", "indent_size"],
-    (options: OptionValues): number | undefined => {
-      if (options.indent_with_tabs === true) {
-        return 1;
-      } else {
-        return options.indent_size;
-      }
-    },
-  ],
+  insize: "indent_size",
   methodchain: [
     ["break_chained_methods"],
     (options: OptionValues): boolean => {
