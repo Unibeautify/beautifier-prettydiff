@@ -9,7 +9,7 @@ export const beautifier: Beautifier = {
     "C#": options.Script,
     ColdFusion: options.Markup,
     CSS: options.Style,
-    CSV: options.Markdown,
+    CSV: options.Common,
     EJS: options.Script,
     Handlebars: options.Markup,
     HTML: options.Markup,

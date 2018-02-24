@@ -2,6 +2,7 @@ import {
   BeautifierOptions,
   OptionValues,
   BeautifierLanguageOptions,
+  BeautifierLanguageOptionComplex,
 } from "unibeautify";
 const commonOptions: BeautifierLanguageOptions = {
   comments: [
@@ -62,25 +63,18 @@ const commonOptions: BeautifierLanguageOptions = {
   wrap: "wrap_line_length",
 };
 const styleOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
   cssinsertlines: "newline_between_rules",
 };
 const markupOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
   force_indent: "force_indentation",
 };
 const options = {
-  Markup: {
-    ...commonOptions,
-    ...markupOptions,
-  },
-  Markdown: {
-    ...commonOptions,
-  },
-  Script: {
-    ...commonOptions,
-  },
-  Style: {
-    ...commonOptions,
-    ...styleOptions,
-  },
+  Markup: markupOptions,
+  Markdown: commonOptions,
+  Script: commonOptions,
+  Style: styleOptions,
+  Common: commonOptions,
 };
 export default options;
