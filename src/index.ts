@@ -1,7 +1,11 @@
 import { Beautifier, Language, BeautifierBeautifyData } from "unibeautify";
+import * as readPkgUp from "read-pkg-up";
+
 const prettydiff = require("prettydiff2");
 import options from "./options";
-const pkg = require("../package.json");
+
+const { pkg } = readPkgUp.sync({ cwd: __dirname });
+
 export const beautifier: Beautifier = {
   name: "Pretty Diff",
   package: pkg,
