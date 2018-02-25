@@ -1,6 +1,6 @@
 {
   "name": "@unibeautify/beautifier-prettydiff",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Pretty Diff beautifier for Unibeautify",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
