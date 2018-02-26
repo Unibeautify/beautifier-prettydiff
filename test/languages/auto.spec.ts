@@ -8,6 +8,7 @@ test(`should successfully beautify JavaScript through auto lang select`, () => {
     extensions: ["test"],
     name: "TestLanguage",
     namespace: "test",
+    since: "0.1.0",
     sublimeSyntaxes: [],
     vscodeLanguages: []
   };
