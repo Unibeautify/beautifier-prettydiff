@@ -8,15 +8,16 @@ test(`should successfully beautify JavaScript through auto lang select`, () => {
     extensions: ["test"],
     name: "TestLanguage",
     namespace: "test",
+    since: "0.1.0",
     sublimeSyntaxes: [],
-    vscodeLanguages: []
+    vscodeLanguages: [],
   };
   unibeautify.loadLanguage(testLanguage);
   const testBeautifier = {
     ...beautifier,
     options: {
       [testLanguage.name]: options.Common,
-    }
+    },
   };
   unibeautify.loadBeautifier(testBeautifier);
   const text = `function test(){console.log('hello world');}`;

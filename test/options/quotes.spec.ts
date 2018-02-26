@@ -23,6 +23,7 @@ test(`should successfully beautify JavaScript text with single quotes`, () => {
 test(`should successfully beautify JavaScript text with double quotes`, () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
+  // unibeautify:ignore-next-line
   const quote = '"';
   const text = `console.log('hello world');\nconsole.log("hello world");\n`;
   const beautifierResult = `console.log(${quote}hello world${quote});\nconsole.log(${quote}hello world${quote});\n`;
