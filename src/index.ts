@@ -40,7 +40,7 @@ export const beautifier: Beautifier = {
     return new Promise<string>((resolve, reject) => {
       let lang = "auto";
       switch (data.language.name) {
-        //case "CSV":   lang = "csv";   break;
+        // case "CSV":   lang = "csv";   break;
         case "EJS":
         case "Twig":
           lang = "ejs";
