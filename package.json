@@ -47,7 +47,7 @@
     "tslint-clean-code": "^0.2.3",
     "tslint-microsoft-contrib": "^5.0.1",
     "typescript": "^2.6.2",
-    "unibeautify": "^0.9.1"
+    "unibeautify": "^0.10.0"
   },
   "dependencies": {
     "read-pkg-up": "^3.0.0"
