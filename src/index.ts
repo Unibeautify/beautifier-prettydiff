@@ -13,7 +13,6 @@ export const beautifier: Beautifier = {
     "C#": options.Script,
     ColdFusion: options.Markup,
     CSS: options.Style,
-    CSV: options.Common,
     EJS: options.Script,
     Handlebars: options.Markup,
     HTML: options.Markup,
@@ -40,9 +39,6 @@ export const beautifier: Beautifier = {
     return new Promise<string>((resolve, reject) => {
       let lang = "auto";
       switch (data.language.name) {
-        case "CSV":
-          lang = "csv";
-          break;
         case "EJS":
         case "Twig":
           lang = "ejs";
