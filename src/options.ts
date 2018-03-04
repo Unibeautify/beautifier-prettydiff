@@ -33,7 +33,6 @@ const commonOptions: BeautifierLanguageOptions = {
       return !(options.break_chained_methods === true);
     },
   ],
-  noleadzero: "no_leading_zero",
   preserve: "max_preserve_newlines",
   quoteConvert: "quotes",
   space: "space_after_anon_function",
@@ -64,6 +63,7 @@ const commonOptions: BeautifierLanguageOptions = {
 };
 const styleOptions: BeautifierLanguageOptions = {
   ...commonOptions,
+  noleadzero: "no_leading_zero",
   cssinsertlines: "newline_between_rules",
 };
 const markupOptions: BeautifierLanguageOptions = {
