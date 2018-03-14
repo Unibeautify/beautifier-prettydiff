@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/Unibeautify/beautifier-prettydiff#readme",
   "peerDependencies": {
-    "unibeautify": "^0.10.1",
+    "unibeautify": ">= 0.9.x",
     "prettydiff2": "^2.2.7"
   },
   "devDependencies": {
