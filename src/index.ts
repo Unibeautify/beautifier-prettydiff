@@ -1,14 +1,24 @@
-import { Beautifier, Language, BeautifierBeautifyData } from "unibeautify";
+import {
+  Beautifier,
+  Language,
+  BeautifierBeautifyData,
+  DependencyType,
+  NodeDependency,
+} from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
-
-const prettydiff = require("prettydiff2");
 import options from "./options";
-
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
 
 export const beautifier: Beautifier = {
   name: "Pretty Diff",
   package: pkg,
+  dependencies: [
+    {
+      type: DependencyType.Node,
+      name: "PrettyDiff",
+      package: "prettydiff2",
+    },
+  ],
   options: {
     "C#": options.Script,
     ColdFusion: options.Markup,
@@ -35,10 +45,11 @@ export const beautifier: Beautifier = {
     XML: options.Markup,
     XTemplate: options.Markup,
   },
-  beautify(data: BeautifierBeautifyData) {
+  beautify({ text, options, language, dependencies }: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
+      const prettydiff = dependencies.get<NodeDependency>("PrettyDiff").package;
       let lang = "auto";
-      switch (data.language.name) {
+      switch (language.name) {
         case "EJS":
         case "Twig":
           lang = "ejs";
@@ -99,8 +110,8 @@ export const beautifier: Beautifier = {
         default:
           lang = "auto";
       }
-      const args = Object.assign({}, data.options, {
-        source: data.text,
+      const args = Object.assign({}, options, {
+        source: text,
         lang: lang,
         mode: "beautify",
       });
