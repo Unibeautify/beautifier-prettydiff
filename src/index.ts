@@ -1,4 +1,10 @@
-import { Beautifier, Language, BeautifierBeautifyData, DependencyType, NodeDependency } from "unibeautify";
+import {
+  Beautifier,
+  Language,
+  BeautifierBeautifyData,
+  DependencyType,
+  NodeDependency,
+} from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 import options from "./options";
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
@@ -11,7 +17,7 @@ export const beautifier: Beautifier = {
       type: DependencyType.Node,
       name: "PrettyDiff",
       package: "prettydiff2",
-    }
+    },
   ],
   options: {
     "C#": options.Script,
