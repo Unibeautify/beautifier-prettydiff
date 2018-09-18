@@ -20,20 +20,20 @@ export const beautifier: Beautifier = {
     },
   ],
   options: {
-    "C#": options.Script,
+    "C#": options.BasicScript,
     ColdFusion: options.Markup,
     CSS: options.Style,
     EJS: options.Script,
     Handlebars: options.Markup,
     HTML: options.Markup,
     "HTML+ERB": options.Markup,
-    Java: options.Script,
+    Java: options.BasicScript,
     JavaScript: options.Script,
-    JSON: options.Style,
+    JSON: options.JSON,
+    JSON5: options.JSON5,
     JSX: options.Script,
     Less: options.Style,
     Riot: options.Script,
-    Sass: options.Style,
     SCSS: options.Style,
     Spacebars: options.Markup,
     SVG: options.Markup,
@@ -82,6 +82,7 @@ export const beautifier: Beautifier = {
           lang = "java";
           break;
         case "JSON":
+        case "JSON5":
           lang = "json";
           break;
         case "JSX":
@@ -111,6 +112,7 @@ export const beautifier: Beautifier = {
           lang = "auto";
       }
       const args = Object.assign({}, options, {
+        insize: options.insize || 2,
         source: text,
         lang: lang,
         mode: "beautify",

@@ -1,8 +1,6 @@
 import {
-  BeautifierOptions,
   OptionValues,
   BeautifierLanguageOptions,
-  BeautifierLanguageOptionComplex,
 } from "unibeautify";
 const commonOptions: BeautifierLanguageOptions = {
   comments: [
@@ -15,7 +13,6 @@ const commonOptions: BeautifierLanguageOptions = {
       }
     },
   ],
-  endcomma: "end_with_comma",
   inchar: [
     ["indent_style"],
     (options: OptionValues): string | undefined => {
@@ -27,15 +24,31 @@ const commonOptions: BeautifierLanguageOptions = {
     },
   ],
   insize: "indent_size",
+  preserve: "max_preserve_newlines",
+  quoteConvert: "quotes",
+  wrap: "wrap_line_length",
+};
+const styleOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
+  noleadzero: "no_leading_zero",
+  cssinsertlines: "newline_between_rules",
+};
+delete (styleOptions as any).comments;
+
+const markupOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
+  force_indent: "force_indentation",
+};
+const scriptOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
+  endcomma: "end_with_comma",
+  space: "space_after_anon_function",
   methodchain: [
     ["break_chained_methods"],
     (options: OptionValues): boolean => {
       return !(options.break_chained_methods === true);
     },
   ],
-  preserve: "max_preserve_newlines",
-  quoteConvert: "quotes",
-  space: "space_after_anon_function",
   ternaryline: [
     ["multiline_ternary"],
     (options: OptionValues): boolean | undefined => {
@@ -59,22 +72,32 @@ const commonOptions: BeautifierLanguageOptions = {
       }
     },
   ],
-  wrap: "wrap_line_length",
 };
-const styleOptions: BeautifierLanguageOptions = {
+
+const scriptBasicOptions: BeautifierLanguageOptions = {
+  ...scriptOptions,
+};
+delete scriptBasicOptions.space;
+delete scriptBasicOptions.endcomma;
+
+const json5Options: BeautifierLanguageOptions = {
   ...commonOptions,
-  noleadzero: "no_leading_zero",
-  cssinsertlines: "newline_between_rules",
 };
-const markupOptions: BeautifierLanguageOptions = {
-  ...commonOptions,
-  force_indent: "force_indentation",
+delete json5Options.wrap;
+
+const jsonOptions: BeautifierLanguageOptions = {
+  ...json5Options,
 };
+delete jsonOptions.comments;
+
 const options = {
   Markup: markupOptions,
   Markdown: commonOptions,
-  Script: commonOptions,
+  Script: scriptOptions,
   Style: styleOptions,
+  JSON: jsonOptions,
+  JSON5: json5Options,
   Common: commonOptions,
+  BasicScript: scriptBasicOptions,
 };
 export default options;
