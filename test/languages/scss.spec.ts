@@ -7,9 +7,9 @@ test(`should successfully beautify SASS/SCSS text`, () => {
   const beautifierResult = `$primary-color: #333;\nbody {\n\tcolor: $primary-color;\n}`;
   return unibeautify
     .beautify({
-      languageName: "Sass",
+      languageName: "SCSS",
       options: {
-        Sass: {
+        SCSS: {
           indent_style: "tab",
           indent_size: 1,
         },
