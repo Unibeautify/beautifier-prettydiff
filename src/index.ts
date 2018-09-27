@@ -99,7 +99,6 @@ export const beautifier: Beautifier = {
           lang = "less";
           break;
         case "SCSS":
-        case "Sass":
           lang = "scss";
           break;
         case "Titanium Style Sheets":
