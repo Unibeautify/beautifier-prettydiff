@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/jest": "23.3.13",
-    "@types/node": "10.12.19",
+    "@types/node": "10.12.20",
     "@types/read-pkg-up": "3.0.1",
     "jest": "24.0.0",
     "npm-run-all": "4.1.5",
