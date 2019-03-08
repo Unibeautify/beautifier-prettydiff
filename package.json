@@ -35,7 +35,7 @@
     "prettydiff2": "^2.2.7"
   },
   "devDependencies": {
-    "@types/jest": "24.0.9",
+    "@types/jest": "24.0.10",
     "@types/node": "10.12.24",
     "@types/read-pkg-up": "3.0.1",
     "jest": "24.3.1",
