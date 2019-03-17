@@ -1,11 +1,31 @@
 import { newUnibeautify, Beautifier } from "unibeautify";
-import { beautifier, fixType } from "../src";
+import { beautifier, fixType, langdata } from "../src";
 test("should successfully install beautifier", () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
   expect(unibeautify.loadedBeautifiers.map(curr => curr.name)).toEqual([
     beautifier.name,
   ]);
+});
+test("should select proper lexer value", () => {
+  const unibeautify = newUnibeautify();
+  unibeautify.loadBeautifier(beautifier);
+  const text = `function test(n){return n+1;}`;
+  const beautifierResult = `function test(n) {\n  return n + 1;\n}`;
+  return unibeautify
+    .beautify({
+      languageName: "JavaScript",
+      options: {
+        JavaScript: {
+          indent_char: " ",
+          indent_size: 2,
+        },
+      },
+      text,
+    })
+    .then(() => {
+      expect(langdata.lexer).toBe("script");
+    });
 });
 test("should modify options to appropriate data type", () => {
   const options = {
