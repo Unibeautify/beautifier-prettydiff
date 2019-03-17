@@ -1,5 +1,5 @@
 import { newUnibeautify, Beautifier } from "unibeautify";
-import beautifier from "../src";
+import { beautifier, fixType } from "../src";
 test("should successfully install beautifier", () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
@@ -7,11 +7,18 @@ test("should successfully install beautifier", () => {
     beautifier.name,
   ]);
 });
+test("should modify options to appropriate data type", () => {
+  const options = {
+    wrap: "asdf"
+  };
+  fixType(options, {wrap: 0});
+  expect(options.wrap).toEqual(0);
+});
 test("should successfully beautify JavaScript text with 2 space indentation", () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
   const text = `function test(n){return n+1;}`;
-  const beautifierResult = `function test(n) {\n\u0020\u0020return n + 1;\n}`;
+  const beautifierResult = `function test(n) {\n  return n + 1;\n}`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",

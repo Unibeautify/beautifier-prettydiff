@@ -24,7 +24,7 @@ const fixType = (ops: any, defaults: any): void => {
     }
   } while (index > 0);
 };
-export const beautifier: Beautifier = {
+const beautifier: Beautifier = {
   name: "Pretty Diff",
   package: pkg,
   dependencies: [
@@ -158,4 +158,5 @@ export const beautifier: Beautifier = {
     }) as any;
   },
 };
+export { beautifier, fixType };
 export default beautifier;
