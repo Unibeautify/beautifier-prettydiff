@@ -7,10 +7,7 @@ import {
 } from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 import options from "./options";
-const langdata = {
-  lang: "auto",
-  lexer: "auto",
-};
+let application: any = {};
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
 const fixType = (ops: any, defaults: any): void => {
   // Forcefully overwrites option settings if a wrong data type is used. This
@@ -67,18 +64,21 @@ const beautifier: Beautifier = {
   beautify({ text, options, language, dependencies }: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       const prettydiff = dependencies.get<NodeDependency>("PrettyDiff").package;
+      application = prettydiff;
 
+      let lang: string = "auto";
+      let lexer: string = "auto";
       let auto_lang: [string, string, string] = ["", "", ""];
 
       switch (language.name) {
         case "EJS":
         case "Twig":
-          langdata.lang = "ejs";
-          langdata.lexer = "markup";
+          lang = "ejs";
+          lexer = "markup";
           break;
         case "HTML+ERB":
-          langdata.lang = "html_ruby";
-          langdata.lexer = "markup";
+          lang = "html_ruby";
+          lexer = "markup";
           break;
         case "Handlebars":
         case "Mustache":
@@ -86,72 +86,72 @@ const beautifier: Beautifier = {
         case "Swig":
         case "Riot.js":
         case "XTemplate":
-          langdata.lang = "handlebars";
-          langdata.lexer = "markup";
+          lang = "handlebars";
+          lexer = "markup";
           break;
         case "SGML":
         case "XML":
         case "Visualforce":
         case "SVG":
-          langdata.lang = "xml";
-          langdata.lexer = "markup";
+          lang = "xml";
+          lexer = "markup";
           break;
         case "HTML":
         case "Coldfusion":
-          langdata.lang = "html";
-          langdata.lexer = "markup";
+          lang = "html";
+          lexer = "markup";
           break;
         case "JavaScript":
-          langdata.lang = "javascript";
-          langdata.lexer = "script";
+          lang = "javascript";
+          lexer = "script";
           break;
         case "Java":
-          langdata.lang = "java";
-          langdata.lexer = "script";
+          lang = "java";
+          lexer = "script";
           break;
         case "JSON":
         case "JSON5":
-          langdata.lang = "json";
-          langdata.lexer = "script";
+          lang = "json";
+          lexer = "script";
           break;
         case "JSX":
-          langdata.lang = "jsx";
-          langdata.lexer = "script";
+          lang = "jsx";
+          lexer = "script";
           break;
         // case "JSTL":   lang = "jsp";   break;
         case "C#":
-          langdata.lang = "cs";
-          langdata.lexer = "script";
+          lang = "cs";
+          lexer = "script";
           break;
         case "CSS":
-          langdata.lang = "css";
-          langdata.lexer = "style";
+          lang = "css";
+          lexer = "style";
           break;
         case "Less":
-          langdata.lang = "less";
-          langdata.lexer = "style";
+          lang = "less";
+          lexer = "style";
           break;
         case "SCSS":
-          langdata.lang = "scss";
-          langdata.lexer = "style";
+          lang = "scss";
+          lexer = "style";
           break;
         case "Titanium Style Sheets":
-          langdata.lang = "tss";
-          langdata.lexer = "script";
+          lang = "tss";
+          lexer = "script";
           break;
         case "TypeScript":
-          langdata.lang = "ts";
-          langdata.lexer = "script";
+          lang = "ts";
+          lexer = "script";
           break;
         default:
           auto_lang = prettydiff.api.language.auto(text, "javascript");
-          langdata.lang = auto_lang[0];
-          langdata.lexer = auto_lang[1];
+          lang = auto_lang[0];
+          lexer = auto_lang[1];
       }
       fixType(options, prettydiff.defaults);
       const args = Object.assign(prettydiff.defaults, options, {
-        language: langdata.lang,
-        lexer: langdata.lexer,
+        language: lang,
+        lexer: lexer,
         mode: "beautify",
         source: text,
       });
@@ -160,5 +160,5 @@ const beautifier: Beautifier = {
     }) as any;
   },
 };
-export { beautifier, fixType, langdata };
+export { beautifier, fixType, application };
 export default beautifier;
