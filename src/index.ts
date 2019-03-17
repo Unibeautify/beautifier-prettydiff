@@ -9,7 +9,7 @@ import * as readPkgUp from "read-pkg-up";
 import options from "./options";
 const langdata = {
   lang: "auto",
-  lexer: "auto"
+  lexer: "auto",
 };
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
 const fixType = (ops: any, defaults: any): void => {
