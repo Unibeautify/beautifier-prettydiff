@@ -150,15 +150,6 @@
         "no-consecutive-blank-lines": [
             true
         ],
-        "no-console": [
-            true,
-            "debug",
-            "info",
-            "log",
-            "time",
-            "timeEnd",
-            "trace"
-        ],
         "no-constant-condition": true,
         "no-construct": true,
         "no-control-regex": true,

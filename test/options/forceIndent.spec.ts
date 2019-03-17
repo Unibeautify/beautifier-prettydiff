@@ -25,7 +25,7 @@ test(`should successfully beautify HTML text by force indenting`, () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
   const text = `<div><p>Some text here, some text there</p></div>`;
-  const beautifierResult = `<div>\n\t<p>\n\t\tSome text here, some text there</p>\n</div>`;
+  const beautifierResult = `<div>\n\t<p>\n\t\tSome text here, some text there\n\t</p>\n</div>`;
   return unibeautify
     .beautify({
       languageName: "HTML",

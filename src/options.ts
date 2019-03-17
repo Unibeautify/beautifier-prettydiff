@@ -2,15 +2,15 @@ import { OptionValues, BeautifierLanguageOptions } from "unibeautify";
 const commonOptions: BeautifierLanguageOptions = {
   comments: [
     ["indent_comments"],
-    (options: OptionValues): string => {
+    (options: OptionValues): boolean => {
       if (options.indent_comments === false) {
-        return "noindent";
+        return false;
       } else {
-        return "indent";
+        return true;
       }
     },
   ],
-  inchar: [
+  indent_char: [
     ["indent_style"],
     (options: OptionValues): string | undefined => {
       if (options.indent_style === "tab") {
@@ -20,15 +20,15 @@ const commonOptions: BeautifierLanguageOptions = {
       }
     },
   ],
-  insize: "indent_size",
+  indent_size: "indent_size",
   preserve: "max_preserve_newlines",
-  quoteConvert: "quotes",
+  quote_convert: "quotes",
   wrap: "wrap_line_length",
 };
 const styleOptions: BeautifierLanguageOptions = {
   ...commonOptions,
-  noleadzero: "no_leading_zero",
-  cssinsertlines: "newline_between_rules",
+  no_lead_zero: "no_leading_zero",
+  css_insert_lines: "newline_between_rules",
 };
 delete (styleOptions as any).comments;
 
@@ -38,15 +38,30 @@ const markupOptions: BeautifierLanguageOptions = {
 };
 const scriptOptions: BeautifierLanguageOptions = {
   ...commonOptions,
-  endcomma: "end_with_comma",
-  space: "space_after_anon_function",
-  methodchain: [
-    ["break_chained_methods"],
-    (options: OptionValues): boolean => {
-      return !(options.break_chained_methods === true);
+  end_comma: [
+    ["end_with_comma"],
+    (options: OptionValues): string | undefined => {
+      switch (options.end_with_comma) {
+        case false:
+          return "never";
+        case true:
+          return "always";
+        default:
+          return "none";
+      }
     },
   ],
-  ternaryline: [
+  space: "space_after_anon_function",
+  method_chain: [
+    ["break_chained_methods"],
+    (options: OptionValues): number => {
+      if (options.break_chained_methods === true) {
+        return 3;
+      }
+      return 0;
+    },
+  ],
+  ternary_line: [
     ["multiline_ternary"],
     (options: OptionValues): boolean | undefined => {
       switch (options.multiline_ternary) {
@@ -61,11 +76,11 @@ const scriptOptions: BeautifierLanguageOptions = {
   ],
   vertical: [
     ["align_assignments"],
-    (options: OptionValues): string => {
+    (options: OptionValues): boolean => {
       if (options.align_assignments === true) {
-        return "all";
+        return true;
       } else {
-        return "none";
+        return false;
       }
     },
   ],

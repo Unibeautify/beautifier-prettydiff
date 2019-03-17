@@ -11,7 +11,7 @@ test("should successfully beautify JavaScript text with 2 space indentation", ()
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
   const text = `function test(n){return n+1;}`;
-  const beautifierResult = `function test(n) {\n  return n + 1;\n}`;
+  const beautifierResult = `function test(n) {\n\u0020\u0020return n + 1;\n}`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",

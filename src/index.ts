@@ -8,7 +8,16 @@ import {
 import * as readPkgUp from "read-pkg-up";
 import options from "./options";
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
-
+const fixType = ( ops: any, defaults: any ): void => {
+  const keys: string[] = Object.keys(ops);
+  let index: number = keys.length;
+  do {
+    index = index - 1;
+    if (typeof ops[keys[index]] !== typeof defaults[keys[index]]) {
+      ops[keys[index]] = defaults[keys[index]];
+    }
+  } while (index > 0);
+};
 export const beautifier: Beautifier = {
   name: "Pretty Diff",
   package: pkg,
@@ -16,7 +25,7 @@ export const beautifier: Beautifier = {
     {
       type: DependencyType.Node,
       name: "PrettyDiff",
-      package: "prettydiff2",
+      package: "prettydiff",
     },
   ],
   options: {
@@ -48,14 +57,20 @@ export const beautifier: Beautifier = {
   beautify({ text, options, language, dependencies }: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       const prettydiff = dependencies.get<NodeDependency>("PrettyDiff").package;
-      let lang = "auto";
+
+      let lang: string = "auto";
+      let lexer: string = "auto";
+      let auto_lang: [string, string, string] = ["", "", ""];
+
       switch (language.name) {
         case "EJS":
         case "Twig":
           lang = "ejs";
+          lexer = "markup";
           break;
         case "HTML+ERB":
           lang = "html_ruby";
+          lexer = "markup";
           break;
         case "Handlebars":
         case "Mustache":
@@ -64,59 +79,75 @@ export const beautifier: Beautifier = {
         case "Riot.js":
         case "XTemplate":
           lang = "handlebars";
+          lexer = "markup";
           break;
         case "SGML":
         case "XML":
         case "Visualforce":
         case "SVG":
           lang = "xml";
+          lexer = "markup";
           break;
         case "HTML":
         case "Coldfusion":
           lang = "html";
+          lexer = "markup";
           break;
         case "JavaScript":
           lang = "javascript";
+          lexer = "script";
           break;
         case "Java":
           lang = "java";
+          lexer = "script";
           break;
         case "JSON":
         case "JSON5":
           lang = "json";
+          lexer = "script";
           break;
         case "JSX":
           lang = "jsx";
+          lexer = "script";
           break;
         // case "JSTL":   lang = "jsp";   break;
         case "C#":
           lang = "cs";
+          lexer = "script";
           break;
         case "CSS":
           lang = "css";
+          lexer = "style";
           break;
         case "Less":
           lang = "less";
+          lexer = "style";
           break;
         case "SCSS":
           lang = "scss";
+          lexer = "style";
           break;
         case "Titanium Style Sheets":
           lang = "tss";
+          lexer = "script";
           break;
         case "TypeScript":
           lang = "ts";
+          lexer = "script";
           break;
         default:
-          lang = "auto";
+          auto_lang = prettydiff.api.language.auto(text, "javascript");
+          lang = auto_lang[0];
+          lexer = auto_lang[1];
       }
-      const args = Object.assign({}, options, {
-        insize: options.insize || 2,
-        source: text,
-        lang: lang,
+      fixType(options, prettydiff.defaults);
+      const args = Object.assign(prettydiff.defaults, options, {
+        language: lang,
+        lexer: lexer,
         mode: "beautify",
+        source: text
       });
-      const result = prettydiff(args);
+      const result = prettydiff.mode(args);
       return resolve(result);
     }) as any;
   },
