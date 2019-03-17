@@ -9,9 +9,9 @@ test("should successfully install beautifier", () => {
 });
 test("should modify options to appropriate data type", () => {
   const options = {
-    wrap: "asdf"
+    wrap: "asdf",
   };
-  fixType(options, {wrap: 0});
+  fixType(options, { wrap: 0 });
   expect(options.wrap).toEqual(0);
 });
 test("should successfully beautify JavaScript text with 2 space indentation", () => {
