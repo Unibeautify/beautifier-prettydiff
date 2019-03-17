@@ -9,11 +9,14 @@ import * as readPkgUp from "read-pkg-up";
 import options from "./options";
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
 const fixType = ( ops: any, defaults: any ): void => {
+  // forcefully overwrites option settings if a wrong data type is used
+  // this solves a lot of application stability problems at no cost to the user interface
+  // because the chosen option would likely not have worked anyways
   const keys: string[] = Object.keys(ops);
   let index: number = keys.length;
   do {
     index = index - 1;
-    if (typeof ops[keys[index]] !== typeof defaults[keys[index]]) {
+    if (typeof ops[keys[index]] !== typeof defaults[keys[index]] && defaults[keys[index]] !== undefined) {
       ops[keys[index]] = defaults[keys[index]];
     }
   } while (index > 0);
