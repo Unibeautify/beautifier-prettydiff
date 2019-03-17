@@ -7,7 +7,6 @@ import {
 } from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 import options from "./options";
-let application: any = {};
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
 const fixType = (ops: any, defaults: any): void => {
   // Forcefully overwrites option settings if a wrong data type is used. This
@@ -64,7 +63,6 @@ const beautifier: Beautifier = {
   beautify({ text, options, language, dependencies }: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       const prettydiff = dependencies.get<NodeDependency>("PrettyDiff").package;
-      application = prettydiff;
 
       let lang: string = "auto";
       let lexer: string = "auto";
@@ -160,5 +158,5 @@ const beautifier: Beautifier = {
     }) as any;
   },
 };
-export { beautifier, fixType, application };
+export { beautifier, fixType };
 export default beautifier;

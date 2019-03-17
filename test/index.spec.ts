@@ -1,5 +1,6 @@
 import { newUnibeautify, Beautifier } from "unibeautify";
-import { beautifier, fixType, application } from "../src";
+import { beautifier, fixType } from "../src";
+const prettydiff = require("prettydiff");
 test("should successfully install beautifier", () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
@@ -30,7 +31,7 @@ test("should validate prettydiff.language.auto is a function", () => {
       text,
     })
     .then(() => {
-      expect(typeof application.api.language.auto).toBe("function");
+      expect(typeof prettydiff.api.language.auto).toBe("function");
     });
 });
 test("should validate prettydiff.language.auto is a function", () => {
@@ -49,7 +50,7 @@ test("should validate prettydiff.language.auto is a function", () => {
       text,
     })
     .then(() => {
-      expect(typeof application.defaults.lexer).toBe("string");
+      expect(typeof prettydiff.defaults.lexer).toBe("string");
     });
 });
 test("should successfully beautify JavaScript text with 2 space indentation", () => {
