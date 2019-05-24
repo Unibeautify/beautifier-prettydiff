@@ -7,6 +7,7 @@ import {
 } from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 import options from "./options";
+<<<<<<< HEAD
 const pkg = readPkgUp.sync({ cwd: __dirname });
 const fixType = (ops: any, defaults: any): void => {
   // Forcefully overwrites option settings if a wrong data type is used. This
@@ -25,6 +26,11 @@ const fixType = (ops: any, defaults: any): void => {
   } while (index > 0);
 };
 const beautifier: Beautifier = {
+=======
+const pkg = readPkgUp.sync({ cwd: __dirname })!.package;
+
+export const beautifier: Beautifier = {
+>>>>>>> 608675a63beb6f00fb650609e6a7faf46984760a
   name: "Pretty Diff",
   package: pkg,
   dependencies: [
