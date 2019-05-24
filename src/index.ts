@@ -7,7 +7,7 @@ import {
 } from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 import options from "./options";
-const { pkg } = readPkgUp.sync({ cwd: __dirname });
+const pkg = readPkgUp.sync({ cwd: __dirname });
 const fixType = (ops: any, defaults: any): void => {
   // Forcefully overwrites option settings if a wrong data type is used. This
   // solves a lot of application stability problems at no cost to the user
@@ -146,14 +146,12 @@ const beautifier: Beautifier = {
           lang = auto_lang[0];
           lexer = auto_lang[1];
       }
-      fixType(options, prettydiff.defaults);
-      const args = Object.assign(prettydiff.defaults, options, {
-        language: lang,
-        lexer: lexer,
-        mode: "beautify",
-        source: text,
-      });
-      const result = prettydiff.mode(args);
+      fixType(options, prettydiff.options);
+      prettydiff.options.language = lang;
+      prettydiff.options.lexer = lexer;
+      prettydiff.options.mode = "beautify";
+      prettydiff.options.source = text;
+      const result = prettydiff();
       return resolve(result);
     }) as any;
   },
