@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Unibeautify/beautifier-prettydiff#readme",
   "peerDependencies": {
     "unibeautify": ">= 0.11.2",
-    "prettydiff": "^100.2.6"
+    "prettydiff": "^101.0.6"
   },
   "devDependencies": {
     "@types/node": "12.0.2",

@@ -50,7 +50,7 @@ test("should validate prettydiff.language.auto is a function", () => {
       text,
     })
     .then(() => {
-      expect(typeof prettydiff.defaults.lexer).toBe("string");
+      expect(typeof prettydiff.options.lexer).toBe("string");
     });
 });
 test("should successfully beautify JavaScript text with 2 space indentation", () => {
