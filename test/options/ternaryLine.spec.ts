@@ -25,7 +25,7 @@ test(`should successfully beautify JavaScript text with ternary statements on th
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
   const text = `var foo = bar > baz\n\t? value1\n\t: value2;`;
-  const beautifierResult = `var foo = bar > baz ? value1: value2;`;
+  const beautifierResult = `var foo = bar > baz ? value1 : value2;`;
   return unibeautify
     .beautify({
       languageName: "JavaScript",
