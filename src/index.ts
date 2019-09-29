@@ -7,7 +7,7 @@ import {
 } from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 import options from "./options";
-const pkg = readPkgUp.sync({ cwd: __dirname })!.package;
+const pkg = readPkgUp.sync({ cwd: __dirname })!.packageJson;
 const fixType = (ops: any, defaults: any): void => {
   // Forcefully overwrites option settings if a wrong data type is used. This
   // solves a lot of application stability problems at no cost to the user
